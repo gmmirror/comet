@@ -1,8 +1,12 @@
 #!/usr/bin/env bash
 
-[[ -d "${PREFIX}/tmp/comet" ]] && {
+if [[ ! -d "${PREFIX}/tmp" ]]; then
+    command mkdir -p "${PREFIX}/tmp"
+fi
+
+if [[ -d "${PREFIX}/tmp/comet" ]]; then
     command rm -rf "${PREFIX}/tmp/comet"
-}
+fi
 
 command git clone --depth 1 \
     'https://github.com/Zeronetsec/Comet' \
@@ -12,5 +16,3 @@ cd "${PREFIX}/tmp/comet" || exit 1
 command chmod +x -R "install.sh"
 command bash "install.sh"
 cd
-
-exit 0
