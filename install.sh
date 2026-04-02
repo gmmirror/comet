@@ -8,6 +8,10 @@ if [[ -d "${PREFIX}/tmp/comet" ]]; then
     command rm -rf "${PREFIX}/tmp/comet"
 fi
 
+if [[ -d "${PREFIX}/opt/comet" ]]; then
+    command rm -rf "${PREFIX}/opt/comet"
+fi
+
 command git clone --depth 1 \
     'https://github.com/Zeronetsec/Comet' \
     "${PREFIX}/tmp/comet"
